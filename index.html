@@ -1,0 +1,21 @@
+<script src="https://unpkg.com/mirador@latest/dist/mirador.min.js"></script>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500">
+<!-- Container element of Mirador whose id should be passed to the instantiating call as "id" -->
+<div id="my-mirador"/> 
+
+<script type="text/javascript">
+const queryString = window.location.search;
+const urlParams = new URLSearchParams(queryString);
+const manifesturl = urlParams.get('manifesturl')
+var mirador = Mirador.viewer({
+  "id": "my-mirador",
+  "window": {"sideBarOpenByDefault": true,
+      "defaultSideBarPanel": 'info',
+  },
+  "windows": [
+    {
+      "loadedManifest": manifesturl
+    }
+  ]
+});
+</script>
