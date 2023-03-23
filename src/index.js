@@ -31,8 +31,8 @@ const config = {
     embedOption: {
       enabled: true,
       embedUrlReplacePattern: [
-        /.*\.edu\/(\w+)\/iiif\/manifest/,
-        'https://embed.stanford.edu/iframe?url=https://purl.stanford.edu/$1',
+        /(.*)/,
+        `${window.location.href}`,
       ],
       syncIframeDimensions: {
         height: { param: 'maxheight' },
@@ -41,8 +41,8 @@ const config = {
     shareLink: {
       enabled: true,
       manifestIdReplacePattern: [
-        /\/iiif\/manifest/,
-        '',
+        /(.*)/,
+        `${window.location.href}`,
       ],
     },
   },
